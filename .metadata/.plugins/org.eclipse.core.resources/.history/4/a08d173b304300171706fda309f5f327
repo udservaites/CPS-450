@@ -1,0 +1,60 @@
+/*************************************************************************
+ * Name:K Rebecca Servaites
+ * Date: 05-31-2017
+ *
+ * Compilation:  javac Point.java
+ *
+ * Description: An immutable data type for points in the plane.
+ *
+ *************************************************************************/
+package ud.cps450.spring2017;
+
+import java.util.Comparator;
+
+public class Point implements Comparable<Point> {
+
+    // compare points by slope
+   // public final Comparator<Point> SLOPE_ORDER;       // YOUR DEFINITION HERE
+
+    private final int x;                              // x coordinate
+    private final int y;                              // y coordinate
+
+    // create the point (x, y)
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // plot this point to standard drawing
+    // this method is not required, but for receiving bonus points 
+    public void draw() {
+        /* YOUR CODE HERE */
+    	
+    }
+
+    // draw line between this point and that point to standard drawing
+    // this method is not required, but for receiving bonus points 
+    public void drawTo(Point that) {
+         /* YOUR CODE HERE */
+    }
+
+    // slope between this point and that point
+    public double slopeTo(Point that) {
+        /* YOUR CODE HERE */
+    	
+    	return 0;
+    }
+
+    // is this point lexicographically smaller than that one?
+    // comparing y-coordinates and breaking ties by x-coordinates
+    public int compareTo(Point that) {
+        /* YOUR CODE HERE */
+    	
+    	return 0;
+    }
+
+    // return string representation of this point (x, y)
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+}

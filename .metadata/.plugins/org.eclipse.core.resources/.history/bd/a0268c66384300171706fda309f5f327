@@ -1,0 +1,101 @@
+/*************************************************************************
+ * Name:K Rebecca Servaites
+ * Date: 05-31-2017
+ *
+ * Compilation:  javac Brute.java
+ *
+ * Description: Examines four points at a time and checks to 
+ * see whether they all lie on the same line segment, printing out
+ * any such line segments to standard output and drawing them using 
+ * standard drawing.
+ *
+ *************************************************************************/
+package ud.cps450.spring2017;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Brute {
+
+	static ArrayList<Point> readInput(String filepath) throws IOException {
+
+		String data;
+		int numLines, x, y;
+		StringTokenizer st;
+		ArrayList<Point> listOfPoints = new ArrayList<Point>();
+		// set up the file readers
+		File file = new File(filepath);
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		//System.out.println("File ready to go");
+
+		// read the first int
+		data = br.readLine();
+		//read the rest of the file
+		if (data != null) {
+			numLines = Integer.parseInt(data);
+			data = br.readLine();
+			for (int i = 0; i < numLines; i++) {
+				st = new StringTokenizer(data);
+				//System.out.println("Data: " + data);
+				x = Integer.parseInt(st.nextToken());
+				//System.out.println("x: " + x);
+				y = Integer.parseInt(st.nextToken());
+				//System.out.println("y: " + y);
+				Point p = new Point(x, y);
+				listOfPoints.add(p);
+				data = br.readLine();
+			}
+		}
+
+		return listOfPoints;
+	}
+	
+	/*checks the slopes of all the points to see if they lie along the 
+	same line */
+	static void checkSlopes(Point p, Point q, Point r, Point s) {
+		
+	}
+	
+	/*reset the cooridinate system */
+	static void setUpCoordinateSystem() {
+		//Resize the coordinate area
+		StdDraw.setXscale(0, 32767);
+		StdDraw.setYscale(0, 32767);
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// check command line arguments
+		/*if (args.length < 2) {
+			System.err.println("Brute format: <filepath>");
+			System.exit(1);
+		}
+*/
+		
+		System.out.println("Enter the filepath: ");
+		Scanner s = new Scanner(System.in);
+		String path = s.nextLine();
+		ArrayList<Point> points = new ArrayList<Point>();
+		try {
+			points = readInput(path);
+			for (Point p: points) {
+				System.out.println(p.toString());
+			}
+		} catch (IOException e) {
+			System.err.println("Could not read file. Please try again later.");
+			System.exit(1);
+		}
+		
+		
+	}
+
+}
